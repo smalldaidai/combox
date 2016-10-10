@@ -16,8 +16,8 @@
 			inputWidth		:	输入框的宽度，不输时为200
 			buttonWidth		:	按钮的宽度，不输时为20
 			inputHeight		:	输入框的高度，不输时为自动高度
-			optionsMaxHeight	:	选择列表的最大高度，不输时为500
-			optionsMinHeight	:	选择列表的最小高度，不输时为20,
+			optionsMaxHeight:	选择列表的最大高度，不输时为500
+			optionsMinHeight:	选择列表的最小高度，不输时为20,
 			name			:	在form中提交时的数据域，为空则通过form提交时无数据,
 			value			:	通过form提交时，放在name域中的值对应的数据项，默认为value,
 			onchange		:	选择发生变化时的事件响应方法，有两个参数，即变化前的对象，和变化后的对象
@@ -344,7 +344,7 @@ function Combox(par){
 				if(this.hidden)
 					this.hidden.value = '';
 
-				this.updateOptions(this.data);
+				this.updateOptions(this.fullOptionDataArray);
 
 			}
 
@@ -378,9 +378,11 @@ function Combox(par){
 			this.toggle = function(flag){
 				if(flag){
 
-					//如果本就是显示状态，则不作任何处理
-					if(this.show)
+					//如果本就是显示状态，只需要重新确定尽寸
+					if(this.show){
+						this.resize();
 						return;
+					}
 
 
 					this.show = true;
@@ -434,6 +436,10 @@ function Combox(par){
 				
 				//过滤后重新生成待选项列表
 				this.updateOptions(data);
+				//如果当前状态是显示的，需要重新调整尺寸
+				if(this.show){
+					this.resize();
+				}
 
 			}
 		this.init();
