@@ -1,0 +1,40 @@
+.-combox-input{				/** 这是输入框的样式，有样式需求可以在这里调整，注意，尺寸即width和height，在js的参数中设定，在这里调整没用，会被js修改掉**/
+	border:1px solid black;
+	border-right:0;			/*输入框右边没有边框*/
+}
+
+.-combox-button{			/** 输入框右边的按钮，有样式需求可以在这里调整**/
+	border:1px solid black;
+	padding:0;
+	border-left:0;			/*按钮左边没有边框，这样输入框和按钮就可以看上去在一起了*/
+	background-color:#FFFFFF;
+}
+
+.-combox-optionsPanel{		/* 这里下拉列表的容器 */
+	position:absolute;
+	background-color:#fffffe;
+	display:none;
+	border:1px solid black;
+	height:auto;
+	z-index:100;
+	overflow-y:scroll;
+}
+
+.-combox-optionsPanel li{	/** 这是下拉列表的li **/
+	list-style-type:none;		/*	去掉前面的小点	*/
+}
+
+.-combox-li:hover{			/** li在鼠标划过时设定底色 **/
+			background-color:#0000ff;	
+			color:#ffffff;
+			cursor:default;
+		}
+
+
+.-combox-option{			/** 这里li内层div的样式，主要处理超长部分 **/
+			white-space:nowrap;		/**	选项超长的处理--不换行 **/
+			overflow:hidden;		/**	选项超长的处理--隐藏超出的部分 **/
+			font-size:12px;
+			padding:2px 0;
+			padding-left:5px;
+		}
